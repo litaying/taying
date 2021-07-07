@@ -270,6 +270,284 @@ br标签
 
 # 7 HTML文本格式化
 
+文本格式化
+
+```
+<b>This text is bold.</b>
+<br/>
+<strong>This text is strong.</strong>
+<br/>
+<big>This text is big.</big>
+<br/>
+<em>This text is emphasis.</em>
+<br/>
+<i>This test is italic.</i>
+<br/>
+<small>This test is small.</small>
+<br/>
+This test includes <sup> superscript.</sup>
+<br/>
+This test includes <sub>supscript.</sub>
+```
+
+实例演示：
+
+<b>This text is bold.</b>
+<strong>This text is strong.</strong>
+<big>This text is big.</big>
+<em>This text is emphasis.</em>
+<i>This test is italic.</i>
+
+<small>This test is small.</small>
+This test includes<sup>subscript.</sup>
+This test includes<sub>supscript.</sub>
+
+预格式文本
+
+```
+<pre>
+This example demonstrates how to use the pre tag
+to control
+blank lines and space.
+</pre>
+```
+
+Example demonstration:
+
+<pre>
+This example demonstrates how to use the pre tag
+to control
+blank lines and space.
+</pre>
+计算机输出标签
+
+```
+<code>computer output</ceode>
+<kbd>keyboard input</kbd>
+<tt>teletype text</tt>
+<samp>computer code sample</samp>
+<var>computer variable</var>
+<b>These tags are often used to display computer/programming code.</b>
+```
+
+Example demonstration:
+
+<code>computer output</ceode>
+<kbd>keyboard input</kbd>
+<tt>teletype text</tt>
+<samp>computer code sample</samp>
+<var>computer variable</var>
+<b>These tags are often used to display computer/programming code.</b>
+
+address:
+
+```
+<address>
+Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br/>
+Visit us at:<br/>
+Example.com<br/>
+Box 564,Disneyland<br/>
+USA
+</address>
+```
+
+Example demostration:
+
+<address>
+Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br/>
+Visit us at:<br/>
+Example.com<br/>
+Box 564,Disneyland<br/>
+USA
+</address>
+
+Abbreviations and aronyms 缩写和首字母缩写
+
+```
+<abbr title="etcetera">etc.</abbr>
+<acronym title="World Wide Web">WWW</acronym>
+```
+
+Example demostration:
+
+<abbr title="etcetera">etc.</abbr>
+
+<acronym title="World Wide Web">WWW</acronym>
+
+BiDirectional Override 文字方向（双向覆盖文本的方向）
+
+rtl right to left
+
+ltr left to right
+
+```
+<p>This paragraph text displayed from left to right.</p>
+<p><bdo dir=rtl>This paragraph text displayed from right to left.</bdo><p>
+```
+
+Example demostration:
+
+<p>This paragraph text displayed from left to right.</p>
+<p><bdo dir=rtl>This paragraph text displayed from right to left.</bdo><p>
+
+block quote 块引用
+
+```
+<p>WWF's goal is to:
+<q>Build a future where people live in harmony with nature.</q>
+We hope they succeed.</p>
+```
+
+<p>WWF's goal is to:
+    <q>Build a future where people live in harmony with nature.</q>
+We hope they succeed.</p>
+
+Delete words effect  and insert word effect
+
+```
+<p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
+```
+
+<p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
+
+HTMl text formatting tags HTML文本格式化标签
+
+<table class="reference notranslate">
+<tbody><tr>
+<th width="20%" align="left">标签</th>
+<th width="80%" align="left">描述</th>
+</tr>
+<tr>
+<td><a href="/tags/tag-b.html">&lt;b&gt;</a></td>
+<td>定义粗体文本</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-em.html">&lt;em&gt;</a></td>
+<td>定义着重文字</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-i.html">&lt;i&gt;</a></td>
+<td>定义斜体字</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-small.html">&lt;small&gt;</a></td>
+<td>定义小号字</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-strong.html">&lt;strong&gt;</a></td>
+<td>定义加重语气</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-sub.html">&lt;sub&gt;</a></td>
+<td>定义下标字</td>
+</tr>
+<tr>
+<td><a href="m/tags/tag-sup.html">&lt;sup&gt;</a></td>
+<td>定义上标字</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-ins.html">&lt;ins&gt;</a></td>
+<td>定义插入字</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-del.html">&lt;del&gt;</a></td>
+<td>定义删除字</td>
+</tr>
+</tbody></table>
+
+HTML “computer output” tags  HTML“计算机输出”标签
+
+<table class="reference notranslate">
+<tbody><tr>
+<th width="20%" align="left">标签</th>
+<th width="80%" align="left">描述</th>
+</tr>
+<tr>
+<td><a href="/tags/tag-code.html">&lt;code&gt;</a></td>
+<td>定义计算机代码</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-kbd.html">&lt;kbd&gt;</a></td>
+<td>定义键盘码</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-samp.html">&lt;samp&gt;</a></td>
+<td>定义计算机代码样本</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-var.html">&lt;var&gt;</a></td>
+<td>定义变量</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-pre.html">&lt;pre&gt;</a></td>
+<td>定义预格式文本</td>
+</tr>
+</tbody></table>
+
+HTML citations
+
+<table class="reference notranslate">
+<tbody><tr>
+<th width="20%" align="left">标签</th>
+<th width="80%" align="left">描述</th>
+</tr>
+<tr>
+<td><a href="/tags/tag-abbr.html">&lt;abbr&gt;</a></td>
+<td>定义缩写</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-address.html">&lt;address&gt;</a></td>
+<td>定义地址</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-bdo.html">&lt;bdo&gt;</a></td>
+<td>定义文字方向</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-blockquote.html">&lt;blockquote&gt;</a></td>
+<td>定义长的引用</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-q.html">&lt;q&gt;</a></td>
+<td>定义短的引用语</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-cite.html">&lt;cite&gt;</a></td>
+<td>定义引用、引证</td>
+</tr>
+<tr>
+<td><a href="/tags/tag-dfn.html">&lt;dfn&gt;</a></td>
+<td>定义一个定义项目。</td>
+</tr>
+</tbody></table>
+
+# 8 HTML链接
+
+```
+<a href="www.baidu.com">baidu</a>
+```
+
+<a href="www.baidu.com">baidu</a>
+
+target attributes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
