@@ -32,7 +32,7 @@ HTML实例
 <html>
     <head>
         <meta charset="utf-8">
-        <title>菜鸟教程(runoob.com)</title>
+        <title> 菜鸟教程(runoob.com)</title>
     </head>
     <body>
         <h1>
@@ -43,6 +43,7 @@ HTML实例
         </p>
     </body>
 </html>
+
 
 ------
 
@@ -531,6 +532,40 @@ HTML citations
 
 target attributes
 
+target 定义被链接文档显示位置
+
+_blank 在新窗口打开
+
+```
+<a href="http://www.baidu.com" target="_blank">visit runoob</a>
+```
+
+<a href="http://www.baidu.com" target="_blank">visit runoob</a>
+
+Picture link
+
+<p>创建图片链接：
+    <a href="http://www.baidu.com">
+       <img border="10" src="https://img0.baidu.com/it/u=1514002029,2035215441&fm=26&fmt=auto&gp=0.jpg" alt="HTML教程" width="32" height="32"></a>
+</p>
+
+```
+<p>创建图片链接：
+    <a href="http://www.baidu.com">
+       <img border="10" src="https://img0.baidu.com/it/u=1514002029,2035215441&fm=26&fmt=auto&gp=0.jpg" alt="HTML教程" width="32" height="32"></a>
+</p>
+```
+
+Link to the specified location on the current page
+
+<p>
+    <a href="#T1">跳转到页尾</a>
+</p>        
+
+
+
+
+
 
 
 
@@ -573,4 +608,6 @@ target attributes
 [HTML 标签列表(字母排序) | 菜鸟教程 (runoob.com)](https://www.runoob.com/tags/html-reference.html)
 
 [HTML 全局属性 | 菜鸟教程 (runoob.com)](https://www.runoob.com/tags/ref-standardattributes.html)
+
+<p><a id="T1">here</a></p>
 
