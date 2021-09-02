@@ -149,3 +149,81 @@ maxlength 输入字段最大长度
 HTML结构CSS样式
 
 语法规范 选择器 声明样式
+
+```
+<head>
+    <style>
+        /* 选择器 */
+        /* 给谁改样式{改什么样式} */
+        p{
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+```
+
+## 选择器
+
+基础选择器、复合选择器
+
+基础选择器：标签（p、div）、类（.class)、id（只能被调用一次）、通配符
+
+字体属性
+
+font-size
+
+font-family
+
+font-weight 400 700
+
+font-style normal italic
+
+字体复合属性
+
+font: font-style font-weight font-size/line-height font-family;
+
+必须保留size和family
+
+文本属性
+
+文本颜色 color
+
+text-align left right center
+
+装饰文本 text-decoraction none(删除链接下划线) underline(下划线)、overline(上划线)、line-through(删除线)
+
+text-indent 文本缩进
+
+```
+text-indent: 20px
+text-indent: 2em
+```
+
+em 当前元素相对单位
+
+line-height 行高（上间距 字高 下间距）
+
+##  CSS引入方式
+
+1、行内样式表 行内式
+
+放在标签内部
+
+```
+<p style="color: pink; font-size: 20px;"给我一个粉红的回忆</p>
+```
+
+2、内部样式表 嵌入式
+
+放在style标签中
+
+3、外部样式表 链接式
+
+将CSS文件引入HTML页面中
+
+```
+link rel="stylesheet" href="style.css"
+```
+
+图片对齐需要设置父标签
