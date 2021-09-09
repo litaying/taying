@@ -518,3 +518,144 @@ margin: 0; 清除外边距
 
 行内元素尽量只设置左右内外边距，不要设置上下
 
+# CSS第四天
+
+### 圆角边框
+
+设置元素的外边框圆角
+
+```
+border-radius:length;
+```
+
+参数值可以为数值或百分比
+
+### 盒子阴影
+
+```
+box-shadow: h-shadow v-shadow blur spread color inset;
+```
+
+水平阴影、垂直阴影
+
+或模糊距离、阴影尺寸、阴影颜色、外部阴影outset改为内部阴影
+
+文字阴影
+
+```
+text-shadow: h-shadow v-shadow blur color;
+```
+
+## CSS浮动
+
+### 浮动
+
+传统网页布局的三种方式：标准流、浮动、定位
+
+标准流
+
+标签按照规定的默认方式排列
+
+网页布局第一准则：多个块级元素纵向排列找标准流，多个块级元素横向排列找浮动
+
+```
+选择器 {
+	float: 属性值;
+	}
+```
+
+none, 默认值元素不浮动；left，元素向左浮动；right，元素向右浮动
+
+浮动特性
+
+网页布局第二准则：先设置盒子大小，再设置盒子位置
+
+常见网页布局
+
+top
+
+banner
+
+main | 浮动 left right
+
+footer
+
+ 浮动布局注意点
+
+浮动和标准流的父盒子搭配
+
+一个元素浮动了，理论上其余兄弟元素也要浮动
+
+浮动元素只会影响后边的标准流
+
+清除浮动的本质就是清除浮动元素造成的影响
+
+```
+选择器 {
+clear: 属性值;
+}
+```
+
+left、right、both不允许左、右、两侧有浮动
+
+clear: both最常用
+
+清除浮动的策略是闭合浮动
+
+清除浮动的方法
+
+1、额外标签法、隔墙法
+
+```
+<div style="clear:both"></div>
+```
+
+2、父级元素添加overflow属性
+
+```
+overflow: hidden;
+```
+
+hidden、auto、scroll 溢出隐藏
+
+3、父级元素添加after伪元素
+
+```
+.clearfix: after {
+content: "";
+display: block;
+height: 0;
+clear: both;
+bisibility: hidden;
+}
+
+.clearfix {
+	/* IE6、7 专有 */
+	*zoom: 1;
+}
+```
+
+4、父级添加双伪元素
+
+# CSS第五天
+
+PS切图 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
