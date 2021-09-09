@@ -641,11 +641,37 @@ bisibility: hidden;
 
 PS切图 
 
+cutterman
 
+学成在线案例
 
+CSS属性书写顺序
 
+1、布局定位属性
 
+display、position、float、clear、visibility、overflow（建议display第一个写）
 
+2、自身属性
+
+width、height、margin、padding、border、background
+
+3、文本属性
+
+color、font、text-decoration、text-align、vertical-align、white-space、break-word
+
+4、其他属性（CSS3）
+
+content、cursor、border-radius、box-shadow、background:linear-gradient
+
+ 页面布局整体思路
+
+1、确定页面的版心，即可视区域
+
+2、分析页面中的行模块和每个行模块中的列模块。第一准则
+
+3、一行中的列模块经常浮动布局，先确定每个列的大小，之后确定列的位置。 第二准则
+
+4、制作HTML结构。先有结构，后有样式。
 
 
 
