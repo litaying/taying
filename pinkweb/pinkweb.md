@@ -673,7 +673,7 @@ content、cursor、border-radius、box-shadow、background:linear-gradient
 
 4、制作HTML结构。先有结构，后有样式。
 
-
+实际开发中，我们不会直接用链接a而是用li包含(li+a)的做法。
 
 
 
