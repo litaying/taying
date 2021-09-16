@@ -676,12 +676,3 @@ content、cursor、border-radius、box-shadow、background:linear-gradient
 实际开发中，我们不会直接用链接a而是用li包含(li+a)的做法。
 
 浮动的盒子不会有外边距合并的问题
-
-
-
-
-
-
-
-
-
