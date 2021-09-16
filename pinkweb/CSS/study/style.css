@@ -191,9 +191,45 @@ body {
 .box-hd {
     height: 45px;
 }
-.box-h3 h3 {
+.box h3 {
     float: left;
+    font-size: 20px;
+    color: #494949;
+    margin-left: 30px;
 }
 .box-hd a {
     float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin: 10px;
+    margin-right: 30px;
+}
+/* 把li的父亲加宽，避免换行 */
+.box-bd ul {
+    width: 1225px;
+}
+.box-bd ul li {
+    float: left;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.box-bd ul li img {
+    width: 100%;
+}
+.box-bd ul li h4 {
+    margin: 20px 20px 20px 25px;
+    font-size: 14px;
+    color: #050505;
+    font-weight: 400;
+}
+.box-bd .info {
+    margin: 0 20px 0 25px;
+    font-size: 12px;
+    color: #999;
+}
+.box-bd .info span {
+    color: #ff7c2d;
 }
