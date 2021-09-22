@@ -621,21 +621,34 @@ hidden、auto、scroll 溢出隐藏
 3、父级元素添加after伪元素
 
 ```
-.clearfix: after {
-content: "";
-display: block;
-height: 0;
-clear: both;
-bisibility: hidden;
-}
-
-.clearfix {
-	/* IE6、7 专有 */
-	*zoom: 1;
-}
+.clearfix:after {  
+   content: ""; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;  
+ } 
+ .clearfix {  /* IE6、7 专有 */ 
+   *zoom: 1;
+ } 
 ```
 
 4、父级添加双伪元素
+
+```
+ .clearfix:before,.clearfix:after {
+   content:"";
+   display:table; 
+ }
+ .clearfix:after {
+   clear:both;
+ }
+ .clearfix {
+    *zoom:1;
+ }  
+```
+
+
 
 # CSS第五天
 
@@ -677,19 +690,154 @@ content、cursor、border-radius、box-shadow、background:linear-gradient
 
 浮动的盒子不会有外边距合并的问题
 
+# CSS第六天
 
+## 定位
 
+### 定位组成
 
+定位模式 定位方式 
 
+static 静态定位 relative 相对定位 
 
+absolute  绝对定位 fixed 固定定位
 
+边迁移 元素的最终位置
 
+top bottom left right
 
+1、静态定位 static
 
+默认定位方式 无定位
 
+```
 
+选择器 { position static； }
+```
 
+按照标准流摆放位置，没有边偏移，很少用到
 
+2、相对定位 relative
 
+相对原来位置 
 
+```
+选择器 { position：relative；}
+```
 
+原来在标准流的位置继续占有，后续盒子仍然以标准流对待他。
+
+3、绝对定位 absolute
+
+相对于祖先元素来说
+
+```
+选择器 { position：absolute；}
+```
+
+如果没有祖先元素或祖先元素没有定位，则是以浏览器为准定位
+
+如果祖先元素有定位，则以最近一级有定位祖先元素为参考点移动位置
+
+绝对定位脱离标准流，不再占据原先的位置
+
+子绝父相
+
+父亲需要保留位置，子盒子不需要
+
+4、固定定位 fixed
+
+固定于浏览器的可视位置，页面滚动元素不会改变
+
+以浏览器的可视窗口为参照点移动元素
+
+固定定位不占有原先的位置
+
+固定在版心右侧：left 50% margin left版心的一半
+
+粘性定位 sticky
+
+相对定位和固定定位的混合
+
+以浏览器的可视窗口为参照点移动元素
+
+占有原来位置
+
+兼容性差，不支持IE
+
+### 定位叠放次序 z-index
+
+控制盒子的z轴
+
+属性值相同按书写顺序后来居上
+
+只有定位的盒子有这个属性
+
+### 定位的拓展
+
+绝对定位的盒子居中
+
+定位的特殊性
+
+1、行内元素添加绝对或者固定定位，可以直接设置宽度和高度
+
+2、块级元素添加绝对或者固定定位，可以不给宽度或者高度，默认大小是内容的大小。
+
+3、脱标的盒子不会触发外边距塌陷
+
+浮动元素、绝对定位、固定定位元素都不会触发外边距合并问题
+
+4、绝对定位、固定定位会完全压住盒子
+
+浮动元素不同，会压住标准流的盒子，但是不会压住里面的图片或文字（最初的目的是为了文字环绕） 
+
+绝对定位和固定定位会压住盒子和里面的内容。
+
+### 淘宝焦点图布局
+
+如果一个和盒子既有right和left属性、top和bottom属性，会执行left和top属性
+
+1、标准流 
+
+可以让盒子上下排列或者左右排列，垂直的块级盒子显示就用标准流布局。
+
+2、浮动
+
+可以让多个块级元素一行显示或者左右对齐盒子，多个块级盒子显示就用浮动布局。
+
+3、定位
+
+定位最大的特点是有层叠的概念，就是让多个盒子前后叠加来显示。如果元素自由在某个盒子内移动就用定位布局。
+
+## 元素的显示和隐藏
+
+在页面中隐藏元素
+
+1、display 显示隐藏
+
+```
+dislay: none;隐藏对象并且不占有原来的位置
+display: block;除了转换为块级元素之外，同时还有显示元素的意思
+```
+
+2、visibility 可见性
+
+```
+visibility: visible; 元素可视
+visibility: hidden; 元素隐藏，继续占有原先位置
+```
+
+3、overflow 溢出
+
+指定内容溢出元素框的显示方式
+
+```
+visible 不剪切内容也不添加滚动条
+hidden 不显示超过对象尺寸的内容，超出的部分隐藏掉
+scroll 不管超出内容否，总是显示滚动条
+auto 根据内容智能显示滚动条
+```
+
+有定位的盒子慎用hidden
+
+# CSS第七天
