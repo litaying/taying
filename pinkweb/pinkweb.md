@@ -841,3 +841,160 @@ auto 根据内容智能显示滚动条
 有定位的盒子慎用hidden
 
 # CSS第七天
+
+## css高级技巧
+
+### css三角
+
+```
+div {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	border: 50px solid transparent;
+	boder-left-color: pink;
+}
+```
+
+### css用户界面样式
+
+1、鼠标样式 cursor
+
+```
+li {cursor: pointer; }
+```
+
+设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状
+
+default 小白 默认
+
+pointer 小手
+
+move 移动
+
+text 文本
+
+not-allowed 禁止
+
+2、轮廓线 outline
+
+```
+input {
+	outline：none；/或0
+	}
+```
+
+3、防止拖拽文本域 resize
+
+```
+textarea {
+	resize； none；
+}
+```
+
+3、vertical-align 属性应用
+
+对齐方式 设置图片或者表单（行内块元素）和文字垂直对齐
+
+```
+baseline 默认 元素放置在父元素的基线上
+top 元素的顶端与行中最高元素的顶端对齐
+middle 元素放置在父元素的中部
+bottom 将元素顶端与行中最低元素的的顶端对齐
+```
+
+解决图片底部留白问题
+
+更改基线对齐方式
+
+更改为块级元素
+
+4、溢出的文字省略号显示
+
+单行文本
+
+```
+1、先强制一行内显示文本
+white-space：nowrap；（默认normal自动换行）
+2、超出的部分隐藏
+overflow：hidden；
+3、文字用省略号代替超出的部分
+text-overflow：ellipsis；
+```
+
+多行文本
+
+兼容问题 适用于webkit浏览器
+
+```
+over-flow： hidden；
+text-overflow：ellipsis；
+弹性伸缩盒子模型显示
+display：-webkit-box；
+限制在一个块元素显示的文本的行数
+-webkit-line-clamp：2；
+设置或检索伸缩盒对象的子元素的排列方式
+-webkit-box-orient：vertical；
+```
+
+更推荐让后台人员来做这个效果，后台人员可以设置显示字数
+
+## 常见的布局技巧
+
+1、margin负值的运用
+
+解决外边距合并
+
+```
+ul li {
+	float: left;
+	list-style: none;
+	width: 150px;
+	height: 200px;
+	border: 1px solid red;
+	margin-left: -1px;
+}
+```
+
+鼠标经过边框变色
+
+```
+1、如果盒子没有定位，则鼠标经过添加相对定位即可
+ul li hover {
+	position: relative;
+	border: 1px soild blue;
+}
+2、如果li都有定位，则利用z-index提高层级
+ul li:hover {
+	z-index: 1;
+	border: 1px soild blue;
+}
+```
+
+2、文字围绕浮动元素
+
+浮动元素不会压住文字
+
+3、行内块元素巧妙运用
+
+底部网页跳转导航栏
+
+4、CSS三角强化
+
+```
+width: 0;
+height: 0;
+border-color: transparent red transparent transparent;
+border-style: soild;
+border-width: 22px 8px 0 0;
+```
+
+## CSS初始化
+
+重设浏览器样式
+
+# CSS第八天
+
+H5C3
+
