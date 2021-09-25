@@ -1255,3 +1255,26 @@ CSS3 相关样式
 
 HTML5 CSS3 javascript
 
+# PC端品优购项目
+
+favicon.ico 缩略的网站标志 显示在浏览器的地址栏或者标签上
+
+## 网站TDK三大标签SEO优化
+
+Search Engine Optimization 搜索引擎优化
+
+title description keyword 
+
+LOGO优化
+
+1、h1标签提权
+
+2、放一个可以返回首页的链接
+
+3、链接里面放网站名称，但是文字不要显示
+
+- 方法1：text-indent移到盒子外面（text-indent: -9999px), 然后overflow:hidden，淘宝的做法
+- 方法2：直接给font-size: 0; 就看不见文字了，京东的做法
+
+4、给链接一个title属性，鼠标放到logo上可以看到提示文字
+
