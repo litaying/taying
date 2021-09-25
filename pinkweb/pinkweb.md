@@ -998,3 +998,260 @@ border-width: 22px 8px 0 0;
 
 H5C3
 
+## HTML5
+
+新的标签、表单和表单属性，需要IE9+
+
+1、新增的语义化标签
+
+```
+header 头部标签
+nav 导航标签
+article 内容标签
+section 定义文档某个区域
+aside 侧边栏标签
+footer 尾部标签
+```
+
+2、多媒体标签
+
+音频audio、视频video
+
+```
+<video src="文件地址" controls="controls"></video>
+```
+
+```
+autoplay autoplay 视频自动播放（谷歌浏览器需要添加muted解决）
+controls controls 向用户显示播放控件
+width pixels（像素） 设置播放器宽度
+height pixels（像素） 设置播放器高度
+loop loop 是否循环播放
+preload auto/none 是否预加载视频，设置autoplay后忽略该属性
+src url 视频url地址
+poster imgurl 等待加载的画面图片
+muted muted 静音播放
+```
+
+```
+<audio src="文件地址" controls="controls"></audio>
+```
+
+```
+autoplay
+controls
+loop
+src
+```
+
+3、新增input表单类型
+
+```
+type="email" 限制用户输入必须为Email类型
+url 
+date
+time
+month
+week
+number
+tel
+search
+color
+```
+
+ number tel search
+
+4、新增的表单属性
+
+```
+required required 内容不能为空
+placeholder 提示文本 表单的提示信息
+autofocus autofocus 自动聚焦属性
+autocomplete off/on 默认打开 显示历史成功输入记录
+multiple multiple 可以多选文件提交
+```
+
+placeholder、multiple
+
+## CSS3
+
+1、新增选择器
+
+属性选择器、结构伪类选择器、 伪元素选择器
+
+属性选择器
+
+```
+1、属性选择器可以不借助类或者ID选择器
+input[value] {
+	选中带有value值的input表单
+}
+*2、选择属性=值的某些元素
+input[type="text"] {
+	选中type值为text的input表单
+}
+3、选择属性值开头的某些元素
+div[class^="icon"] {
+	div具有class属性，属性值为icon开头的元素
+}
+4、选择属性值结尾的某些元素
+section[class$="data"] {
+	section具有class属性，属性值为data结尾的元素
+}
+5、选择属性值中含有val的元素
+section[class*="val"] {
+	section具有class属性，包含属性值为val的元素
+}
+```
+
+类选择器、属性选择器、伪类选择器，权重为10
+
+结构伪类选择器
+
+根据文档结构选择，常用于根据父级选择器选择里边的子元素
+
+```
+E:first-child 匹配父元素中的第一个子元素E
+E:last-child 匹配父元素中最后一个E元素
+E:nth-child(n) 匹配父元素中的第n个子元素E
+n可以是
+数字（从1开始）、
+关键字（even偶数、odd奇数）、
+公式（n从零开始，2n即偶数孩子、2n+1即奇数、5n、n+5即第5和以后所有元素、-n+5即前5个）
+E:first-of-type 指定类型E的第一个
+E:last-of-type 指定类型E的最后一个
+E:nth-of-type(n) 指定类型E的第n个
+```
+
+```
+1、子元素 先排序再判断元素类型
+ul li:first-child {
+	选择ul的第一个孩子li
+}
+ul li:first-child(n) {
+	选择ul的n个孩子li
+}
+2、指定类型元素 先判断类型排序
+ul li:first-of-type {
+	选择ul的第一个li类型
+}
+ul li:first-of-type(n) {
+	选择ul的n个孩子li
+}
+权重
+```
+
+​	*伪元素选择器
+
+利用CSS创建新标签，简化HTML结构
+
+```
+::before 在元素内部的前面插入内容
+::after 在元素内部的后面插入内容
+```
+
+element::before/after
+
+必须具有content属性 
+
+行内元素
+
+伪元素选择器和标签选择器一样，权重为1
+
+伪元素使用场景1伪元素字体图标
+
+```
+p::before {
+	position: absolute;
+	right: 20px;
+	top: 10px
+	content: '\e91e';
+	font-size: 20px
+}
+```
+
+伪元素使用场景2伪土豆效果
+
+```
+.tudou:hover::before {
+}
+```
+
+伪元素使用场景3伪元素清除浮动
+
+```
+.clearfix:before,.clearfix:after {
+	content:'';
+	display:table;
+}
+.clearfix:after {
+	clear:both;
+}
+```
+
+## CSS3盒子模型
+
+border-sizing: content-box 盒子大小为width+padding+border（默认属性）
+
+box-sizing: border-box 盒子大小为width  //padding和border不超过width就不会撑大盒子
+
+```
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+```
+
+## CSS3其它特性
+
+1、图片变模糊
+
+CSS3滤镜filter：
+
+filter CSS属性将模糊或颜色偏移等图形效果应用于元素
+
+```
+filter: 函数(); 例如：filter:blur(5px) blur模糊处理 数字化越大越模糊
+```
+
+2、计算盒子宽度width：calc函数
+
+calculate
+
+```
+width: calc(100%-80px);
+```
+
+括号里可以使用+-*/来进行计算
+
+## *CSS3过渡
+
+过渡动画，从一个状态渐渐的过渡到另一个状态
+
+```
+transition：要过渡的属性 花费时间 运动曲线 何时开始；
+1、属性：想要变化的css属性，宽度高度 背景颜色 内外边距 想要所有的属性都变化过渡用all
+2、花费时间：单位是秒（必须写单位）比如0.5s
+3、运动曲线：默认是ease（可以省略）
+4、何时开始：单位是秒（必须写单位）可以设置延迟触发时间 默认是0s（可以省略）
+```
+
+多个属性利用逗号进行分割
+
+### 进度条案例
+
+进度条如何布局
+
+进度条过渡
+
+## 狭义的HTML5 CSS3
+
+HTML5 结构标签本身
+
+CSS3 相关样式
+
+## 广义的H5
+
+HTML5 CSS3 javascript
+
