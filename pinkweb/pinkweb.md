@@ -1,4 +1,4 @@
-# html 第一天 
+# HTML 第一天 
 
 ## web标准
 
@@ -1277,4 +1277,254 @@ LOGO优化
 - 方法2：直接给font-size: 0; 就看不见文字了，京东的做法
 
 4、给链接一个title属性，鼠标放到logo上可以看到提示文字
+
+# H5C3再提升
+
+## 4、2D转换
+
+转换可以实现元素的位移、旋转和缩放
+
+transform 变形
+
+- 移动 translate
+- 旋转 rotate
+- 缩放 scale
+
+### transform 移动
+
+```
+transform: translate(100px,100px);
+transform: translate(100px,0);
+transform: translateX(100px);
+transform: translateY(100px);
+```
+
+不会影响其他盒子的位置
+
+translate中的百分比单位是相对于自身元素的 translate:(50%,50%);
+
+对行内标签没有效果
+
+### rotate 旋转
+
+```
+transform: rotate(度数)
+
+	/* Rotate div */
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-webkit-transform:rotate(90deg); /* Safari and Chrome */
+
+```
+
+rotate里面跟度数， 单位是 deg 比如 rotate(45deg)
+
+角度为正时，顺时针，负时，为逆时针
+
+默认旋转的中心点是元素的中心点
+
+### 2D转换中心点 transform-orgin
+
+```
+transform-origin: x y;
+```
+
+- 注意后面的参数用空格隔开
+- 默认值是元素的中心点(50% 50%)
+- 可以给x y设置像素或者方位名词 top bottom left right center
+
+### scale 缩放
+
+```
+transform:scale(x,y);
+```
+
+x  y为宽 高 倍数
+
+sacle缩放最大的优势：可以设置转换中心点缩放，默认以中心点缩放的，而且不影响其他盒子
+
+### 2D转换综合写法
+
+transform: tranlate() rotate() scale()
+
+顺序会影响效果
+
+### 转换总结
+
+转换transform 我们简单理解就是变形 有2D 和 3D 之分
+ 我们暂且学了三个 分别是 位移 旋转 和 缩放
+2D 移动 translate(x, y) 最大的优势是不影响其他盒子， 里面参数用%，是相对于自身宽度和高度来计算的
+可以分开写比如 translateX(x) 和 translateY(y)
+2D 旋转 rotate(度数) 可以实现旋转元素 度数的单位是deg
+2D 缩放 sacle(x,y) 里面参数是数字 不跟单位 可以是小数 最大的优势 不影响其他盒子
+设置转换中心点 transform-origin : x y; 参数可以百分比、像素或者是方位名词
+当我们进行综合写法，同时有位移和其他属性的时候，记得要将位移放到最前
+
+## 5、CSS3动画
+
+```
+@keyframes move {
+            from {
+                transform:translate(0,0);
+            }
+            to {
+                transform: translate(1000px,0);
+            }
+        }
+        /* 动画序列 */
+        
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            animation-name: move;
+            animation-duration: 2s;
+        }
+        0%
+        100% 
+        时间划分
+```
+
+常用属性
+
+下面的表格列出了 @keyframes 规则和所有动画属性：
+
+| 属性                                                         | 描述                                                         | CSS  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- | :--- |
+| [@keyframes](https://www.runoob.com/cssref/css3-pr-animation-keyframes.html) | 规定动画。                                                   | 3    |
+| [animation](https://www.runoob.com/cssref/css3-pr-animation.html) | 所有动画属性的简写属性。                                     | 3    |
+| [animation-name](https://www.runoob.com/cssref/css3-pr-animation-name.html) | 规定 @keyframes 动画的名称。                                 | 3    |
+| [animation-duration](https://www.runoob.com/cssref/css3-pr-animation-duration.html) | 规定动画完成一个周期所花费的秒或毫秒。默认是 0。             | 3    |
+| [animation-timing-function](https://www.runoob.com/cssref/css3-pr-animation-timing-function.html) | 规定动画的速度曲线。默认是 "ease"。                          | 3    |
+| [animation-fill-mode](https://www.runoob.com/cssref/css3-pr-animation-fill-mode.html) | 规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式,forwards,backwards。 | 3    |
+| [animation-delay](https://www.runoob.com/cssref/css3-pr-animation-delay.html) | 规定动画何时开始。默认是 0。                                 | 3    |
+| [animation-iteration-count](https://www.runoob.com/cssref/css3-pr-animation-iteration-count.html) | 规定动画被播放的次数。默认是 1。infinite 无限。              | 3    |
+| [animation-direction](https://www.runoob.com/cssref/css3-pr-animation-direction.html) | 规定动画是否在下一周期逆向地播放。默认是 "normal"。alternate。 | 3    |
+| [animation-play-state](https://www.runoob.com/cssref/css3-pr-animation-play-state.html) | 规定动画是否正在运行或暂停。默认是 "running"。pause。        | 3    |
+
+动画简写属性
+
+```
+animation：动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或结束状态；
+```
+
+运动曲线：steps（）步长，突变 打字机效果
+
+元素可以添加多个动画，用，分割
+
+## 6、3D转换
+
+三维坐标系 
+
+x右正左负，y下正上负，z外正里负
+
+```
+transform:translateX(100px)
+transform:translateY(100px)
+transform:translateZ(100px) 一般以px为单位
+transform:translate3d(x,y,z)
+```
+
+### perspective透视
+
+近大远小
+
+写在被观察元素的父盒子上
+
+```
+perspective：500px 
+```
+
+### rotate3d 3D旋转
+
+元素在三维平面沿着xyz轴进行旋转
+
+```
+transform:rotateX(45deg) 沿着X轴正方向旋转45度
+transform:rotateY(45deg) 沿着y轴正方向旋转45度
+transform:rotateZ(45deg) 沿着z轴正方向旋转45度
+transform:rotate3d(x,y,z,45deg) 沿着自定义轴正方向旋转45度
+```
+
+左手准则 大拇指朝向轴正方向 手指弯曲的方向就是旋转的方向
+
+### transform-style 3D呈现
+
+控制子元素是否开启三维立体环境
+
+```
+transform:flat 子元素不开启3d立体空间 默认
+transform-style:preserve-3d; 子元素开启3D空间
+```
+
+代码写给父级，但是影响的是子盒子
+
+ 两面翻转
+
+旋转木马案例
+
+## 7、浏览器私有前缀
+
+兼容老版本的写法
+
+- -moz-：代表Firefox浏览器私有实行
+- -ms-：代表IE浏览器私有属性
+- -webkit-：代表Safari、Chrome私有属性
+- -o-：代表Opera私有属性
+
+提倡的写法：
+
+```
+-moz-border-radius：10px；
+-webkit-border-radius：10px；
+-o-border-radius：10px；
+border-radius：10px；
+```
+
+CSS3新增属性
+
+1. 新的选择器
+
+   1. 属性选择器
+
+      [title] [class="demo"]
+
+   2. 结构伪类选择器
+
+      nth-child(n) 数字、关键词、公式
+
+      nth-of-type(n) 根据类型选择
+
+   3. 伪类选择器
+
+      ::before
+
+      ::after
+
+2. 转换transform
+
+   1.  2D 
+
+      translate(x,y)
+
+      rotate(45deg)
+
+      scale(x,y)
+
+   2. 3D
+
+      translate3d(x,y,z)
+
+      rotateX(x)
+
+      rotateY(y)
+
+      rotateZ(z)
+
+3. 动画animation
+
+   1. 重点记住动画简写属性
+   2. 动画的暂停，状态等
+
+4. 浏览器私有前缀
 
