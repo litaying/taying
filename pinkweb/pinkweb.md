@@ -1528,3 +1528,455 @@ CSS3新增属性
 
 4. 浏览器私有前缀
 
+# 移动web开发之流式布局
+
+## 流式布局基础
+
+- 针对webkit进行兼容
+- 主要针对手机
+- 碎片化严重，分辨率不一
+- 学会使用谷歌浏览器模拟手机界面以及调试
+
+## viewport 视口
+
+浏览器显示页面的屏幕区域。主要分为布局视口、视觉视口和理想视口。
+
+1、layout viewport 布局视口
+
+- 一般移动设备的浏览器都默认设置了一个布局视口，用于解决早期的PC端页面在手机现实的问题。
+- iOS和Android基本都将这个视口分辨率设置为980px，所以PC上的网页大多都能在手机上呈现，只不过元素看上去很小，一般默认可以通过手动缩放网页。
+
+2、visual viewport 视觉视口
+
+- 用户正在看到的网站的区域
+- 可以通过缩放去操作视觉视口，但不会影响布局视口。
+
+3、ideal viewport 理想视口
+
+- 为了使网站在移动端有最理想的浏览和阅读宽度而设定
+- 对设备来说，是最理想的视口尺寸
+- 需要手动添加meta视口便签通知浏览器操作
+- meta视口标签的主要目的：布局视口的宽度应该与理想视口的宽度一致，设备有多宽，我们布局的视口就有多宽
+
+4、meta视口标签
+
+标准的viewport设置
+
+```
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-c=scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+```
+
+## 二倍图
+
+物理像素&物理像素比
+
+- 屏幕显示的最小颗粒，即分辨率
+- PC端1px等于1个物理像素
+- 一个px能显示的物理像素点的个数，称为物理像素比或屏幕像素比
+
+视网膜技术将更多物理像素点显示在一块屏幕内从而达到更高的分辨率
+
+正常比例的图片在手机上显示会模糊，所以使用多倍图
+
+### background-size 背景缩放
+
+```
+background-size：图片的宽度 图片的高度；
+background-size：500px 200px；
+1、只写一个参数是宽度，高度等比例缩放
+background-size: 500px;
+2、单位可以是% 相对父盒子而言
+background-size：50%
+3、cover 按照图片等比例拉伸至完全覆盖盒子
+background-size：cover
+4、contain 按照图片等比例拉伸至宽或高覆盖盒子
+```
+
+## 移动端开发选择
+
+ 1、单独制作移动页面（主流）
+
+通过判断设备打开mobile网站
+
+2、响应式页面兼容移动端
+
+判断屏幕宽度打开网站
+
+## 移动端技术解决方案
+
+### 移动端浏览器
+
+webkit为主
+
+### CSS样式初始化 normalize.css
+
+- 保护了有价值的默认值
+- 修复了浏览器的bug
+- 模块化
+- 拥有详细的文档
+
+### box-sizing CSS3盒子模型 
+
+传统模式宽度计算：盒子的宽度=CSS中设置的width+border+padding
+
+CSS3盒子模型：盒子的宽度=CSS中设置的宽度width里面包含了border和padding，不会撑大盒子
+
+```
+CSS3盒子模型
+box-sizing：border-box；
+传统盒子模型
+box-sizing：content-box；
+```
+
+### 特殊样式
+
+```
+CSS3盒子模型
+box-sizing：border-box；
+-webkit-box-sizing：border-box；
+点击(如链接背景）亮度，我们需要清除清除 设置为transparent 完成透明
+-webkit-tap-highlight-color：transparent；
+在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入自定义样式
+-webkit-appearance：none；
+禁用长按页面时的弹出菜单
+img,a {-webkit-touch-callout:none;}
+```
+
+## 移动端常见布局
+
+### 移动端技术选型
+
+单独制作和响应式
+
+### 流式布局-百分比布局
+
+宽度设置为百分比根据屏幕宽度来进行伸缩
+
+```
+section {
+	width：100px;
+	max-width:980px;
+	min-width:320px;
+	}
+```
+
+案例：京东移动端首页     
+
+去除图片底部空白缝隙
+
+```
+vertical align: top/middle;
+```
+
+# 移动web开发之Flex布局
+
+## 布局原理
+
+flex flexible Box 弹性布局 用来为盒状模型提供最大的灵活性，任何一个容器都可以指定为flex布局
+
+-  父盒子设为flex后，子元素的float、clear、vertical-align属性将失效
+
+- 伸缩布局=弹性布局=伸缩盒布局=弹性盒布局=flex布局
+
+- 采用flex布局的元素称为flex容器，简称容器，所有子元素自动成为容器成员，称为flex项目，简称项目。
+
+- 子容器也就是项目可以可以横向排列也可以纵向排列
+
+  通过给父盒子添加flex属性，来控制子盒子的位置和排列方式
+
+### 常见父项属性
+
+- flex-direction 设置主轴的方向
+- justify-content 设置主轴上子元素的排列方式
+- flex-wrap 设置子元素是否换行
+- align-content 设置侧轴上的子元素的排列方式（多行）
+- align-items 设置侧轴上的子元素排列方式（单行）
+- flex-flow 复合属性，相当于同时设置了flex-direction和flex-wrap
+
+1、flex-direction 设置主轴的方向
+
+主轴 侧轴 行和列 X轴和Y轴
+
+默认X轴向右 侧轴向下
+
+属性值：
+
+```
+row 默认值从左到右 1234
+row-reverse 从右到左 4321
+column 从上到下
+column-reverse 从下到上
+```
+
+2、justify-content 设置主轴上子元素的排列方式
+
+定义项目在主轴上的对齐方式
+
+```
+flex-start 默认从头部开始
+flex-end 从尾部开始排列
+center 在主轴居中对齐
+space-around 平分剩余空间
+space-between 先两边贴边 再平分剩余空间*
+```
+
+3、flex-wrap 设置子元素是否换行
+
+​	默认不换行 缩小宽度放置
+
+```
+nowrap  默认值 不换行
+warp 换行
+```
+
+4、align-items 设置侧轴上的子元素排列方式（单行）
+
+```
+flex-start 从上到下
+flex-end 从下到上
+center 垂直居中（挤在一起居中）
+stretch 拉伸（默认值）
+```
+
+5、align-content 设置侧轴上的子元素的排列方式（多行）
+
+ 子项换行 单行无效
+
+```
+flex-start 默认从头部开始
+flex-end 从尾部开始排列
+center 在主轴居中对齐
+space-around 平分剩余空间
+space-between 先两边贴边 再平分剩余空间*
+stretch 设置子项元素高度平分父元素高度 
+```
+
+flex-flow 复合属性
+
+相当于同时设置了flex-direction和flex-wrap
+
+```
+flex-flow：column wrap
+```
+
+### flex布局子项常见属性
+
+- flex子项目占的分数
+- align-self控制子项自己在侧轴的排列方式
+- order属性定义子项的排列顺序（先后顺序）
+
+1、flex属性
+
+定义子项目分配空间 用flex表示占多少份数
+
+```
+.item {
+	flex: <number>; 默认为0
+}
+```
+
+圣杯布局 定义弹性搜索栏
+
+2、align-self控制子项自己在侧轴的排列方式
+
+```
+span:nth-child(3) {
+	设置自己在侧轴上的排列方式
+	align-self：flex-end;
+}
+```
+
+3、order属性定义子项的排列顺序（先后顺序）
+
+数值越小越靠前
+
+```HTML
+span:nth-child(2) {
+	默认是0 -1比0小 所以在前面
+	order：-1
+}
+```
+
+# Mark
+
+# 移动web开发之rem适配布局
+
+## rem基础
+
+### rem单位
+
+rem(root em)是一个相对单位，
+
+类似于em,em是相对父元素字体大小
+
+rem的基准是相对于HTML元素的字体大小
+
+根元素(html)设置font-size=12px；非根元素设置width:2rem;则换成px表示就是24px
+
+优点：通过修改HTML里面的文字大小来改变页面元素的大小实现整体控制
+
+## 媒体查询
+
+## media query CSS3新语法
+
+- 使用@media，可以针对不同的媒体类型定义不同的样式
+- @media可以针对不同的屏幕尺寸设置不同的样式
+-  当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面
+- 在不同移动设备中使用
+
+```
+@media mediatype and|not|only (media feature) {
+	CSS-Code;
+}
+```
+
+### 语法规范
+
+1、mediatype查询类型
+
+将不同终端设备划分成不同的类型，称为媒体类型
+
+```
+all 用于所有设备
+print 用于打印机和打印预览
+scree 用于电脑屏幕、平板电脑、智能手机等
+```
+
+2、关键字
+
+and not only
+
+3、媒体特性
+
+```
+width 定义设备中页面可见区域的宽度
+min-width 定义设备中页面最小可见区域宽度
+max-width 定义设备中页面最大可见区域宽度
+```
+
+##  媒体查询+rem实现元素动态大小变化
+
+页面元素设置不同的大小尺寸
+
+根据不同设备宽度修改样式
+
+### 引入资源
+
+针对不同的媒体使用不同的stylesheet（样式表）
+
+直接在link中判断设备的尺寸，引入不同的文件
+
+```
+<link rel="stylesheet" media="meidatype and|not|only (media feature)" href="mystylesheet.css">
+
+<link rel="stylesheet" href="mystyle320.css" media="scree and (min-media: 320px)" >
+<link rel="stylesheet" 
+href="mystyle640.css" media="scree and (min-media: 640px)" >
+```
+
+## less基础
+
+### less介绍
+
+learner style sheets 
+
+CSS扩展语言，CSS预处理器
+
+为CSS加入程序式语言的特性
+
+引入变量、mixin混入、运算、函数等
+
+常见的CSS预处理器：Sass、Less、Stylus
+
+Less扩充了CSS的动态特性
+
+### Less使用
+
+创建Less类型文件，书写Less语句
+
+- less变量
+- less编译
+- less嵌套
+- less运算
+
+1、less变量
+
+```
+@变量名：值；
+```
+
+变量命名规范
+
+- 必须以@为前缀
+- 不能包含特殊字符
+- 不能以数字开头
+- 大小写敏感
+
+### less编译
+
+使用easy less插件 保存后自动编译生成css文件
+
+### less嵌套
+
+ 1、子元素的样式直接写到父元素内部
+
+2、如果遇见 交集、伪类或伪元素选择器
+
+- 内层选择器的前面没有&符号，则被解析为父选择器的后代；
+- 如果有&符号，则被解析为父元素自身或父元素的伪类
+
+### less运算
+
+任何数字、颜色、变量都可以参与运算
+
+```
+less
+@width: 10px+5;
+div {
+	border: @width solid red;
+}
+css
+div {
+	border: 15px solid red;
+}
+less
+width: (width + 5)*2;
+```
+
+- 运算符左右空格隔开
+- 不同单位的值之间的运算取第一个值的单位
+- 两个值只有一个单位取该单位
+
+## rem适配方案
+
+1、元素自适应
+
+2、等比缩放
+
+技术方案1
+
+- less
+- 媒体查询
+- rem
+
+技术方案2
+
+- flexible.js
+- rem
+
+# 移动web开发之响应式布局
+
+## 响应式开发原理
+
+媒体查询对不同设备进行显示
+
+<768 超小屏幕 手机
+
+<992 小平设备 平板
+
+<1200 中等屏幕 桌面显示器
+
+\>=1200 宽屏设备 大桌面显示器
+
+
+
