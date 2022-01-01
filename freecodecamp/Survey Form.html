@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+</head>
+
+<body>
+  <h1 id="title">freecodecamp Survey form</h1>
+  <p id="description">input your answer to help me</p>
+  <form action="" id="survey-form">
+
+    <label id="name-label" for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+
+    <label id="email-label" for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+    <label id="number-label" for="age">Age(optional)</label>
+    <input type="number" name="age" id="number" min="10" max="99" placeholder="Enter your age" required>
+
+    <div>
+      <p>Who are you?</p>
+      <select name="role" id="role" required>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="C#">C#</option>
+      </select>
+    </div>
+
+    <div>
+      <p>Wshat's your favorite？</p>
+      <label>
+        <input type="radio" name="fav" value="C" checked>C
+      </label>
+      <label>
+        <input type="radio" name="fav" value="C++">C++
+      </label>
+      <label>
+        <input type="radio" name="fav" value="C#">C#
+      </label>
+    </div>
+
+    <div>
+      <p>Wshat's your dislike？</p>
+      <select name="dislike" id="dropdown" required>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="C#">C#</option>
+      </select>
+    </div>
+
+    <div>
+      <p>Wshat's your favorites?</p>
+      <label>
+        <input value="C" type="checkbox">C
+      </label>
+      <label>
+        <input value="C++" type="checkbox">C++
+      </label>
+      <label>
+        <input value="C#" type="checkbox">C#
+      </label>
+    </div>
+
+    <div>
+      <p>Wshat's your problem ?</p>
+      <textarea name="problem" id="problem" cols="30" rows="10" placeholder="Enter your problem"></textarea>
+    </div>
+
+    <div>
+      <button id="submit" type="submit">Submit</button>
+    </div>
+  </form>
+</body>
+
+</html>
